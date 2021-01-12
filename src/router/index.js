@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Blog from '../views/Blog.vue'
+import Suscriptors from '../views/Suscriptors.vue'
 
 Vue.use(VueRouter)
 
@@ -13,10 +15,21 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  },
+  {
+    path: '/blog/:post',
+    name: 'Blog',
+    component: Blog,
+  },
+  {
+    path: '/suscriptors',
+    name: 'Suscriptors',
+    component: Suscriptors,
+  },
+  {/* esta ruta es notfound con un redirect automatico al inicio tambien podria hacer una vista notfound 404 y con un boton hacerla volver al inicio*/
+    path: '/*',
+    redirect: '/'
   }
 ]
 
